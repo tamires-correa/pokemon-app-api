@@ -29,24 +29,24 @@ enum PokemonType: String, CaseIterable {
     
     var color: Color {
         switch self {
-        case .normal: return .blue.opacity(0.3)
-        case .fire: return .red
-        case .water: return .blue
-        case .grass: return .green
-        case .electric: return .yellow
-        case .ice: return .cyan
-        case .fighting: return .brown
-        case .poison: return .purple
-        case .ground: return .orange
-        case .flying: return .blue.opacity(0.7)
-        case .dragon: return .orange.opacity(0.7)
-        case .dark: return .black
-        case .steel: return .gray
-        case .fairy: return .pink
-        case .ghost: return .purple.opacity(0.7)
-        case .psychic: return .purple.opacity(0.85)
-        case .rock: return .brown.opacity(0.7)
-        case .bug: return .green.opacity(0.7)
+        case .normal: return Color(hex: "#AAA67F")
+        case .fire: return Color(hex: "#F57D31")
+        case .water: return Color(hex: "#6493EB")
+        case .grass: return Color(hex: "#74CB48")
+        case .electric: return Color(hex: "#F9CF30")
+        case .ice: return Color(hex: "#9AD6DF")
+        case .fighting: return Color(hex: "#C12239")
+        case .poison: return Color(hex: "#A43E9E")
+        case .ground: return Color(hex: "#DEC16B")
+        case .flying: return Color(hex: "#A891EC")
+        case .dragon: return Color(hex: "#7037FF")
+        case .dark: return Color(hex: "#75574C")
+        case .steel: return Color(hex: "#B7B9D0")
+        case .fairy: return Color(hex: "#E69EAC")
+        case .ghost: return Color(hex: "#70559B")
+        case .psychic: return Color(hex: "#FB5584")
+        case .rock: return Color(hex: "#B69E31")
+        case .bug: return Color(hex: "#A7B723")
         }
     }
 }
