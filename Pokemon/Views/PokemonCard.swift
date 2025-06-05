@@ -11,28 +11,53 @@ struct PokemonCard: View {
     var pokemon: Pokemon
     
     var body: some View {
-        VStack() {
-            Spacer()
-            VStack(alignment: .leading) {
-                Text(pokemon.data.name.capitalized)
-                .font(.title)
+        containerView
+    }
+    
+    private var containerView: some View {
+        VStack {
+            HStack {
+                Spacer()
+                Text("#001") //Precisa recuperar o numero
+                    .font(.system(size: 8, weight: .light))
+                    .foregroundColor(Color(hex: "#666666"))
+                    .padding(.trailing, 8)
+                    .padding(.top, 4)
             }
-            .frame(maxWidth: .infinity)
-            .background(
-                .white
-                    .opacity(0.6)
-            )
-            
+            Spacer()
+            ZStack {
+                Rectangle()
+                    .fill(Color(hex: "#EFEFEF"))
+                    .frame(height: 44)
+                    .cornerRadius(8)
+                Text(pokemon.data.name.capitalized)
+                    .font(.system(size: 10, weight: .light))
+                    .foregroundColor(Color(hex: "#1D1D1D"))
+                    .padding(.top, 20)
+            }
         }
-        .frame(maxWidth: .infinity)
-        .frame(height: 150)
+        .overlay {
+            AsyncImage(url: pokemon.cover.image) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+            } placeholder: {
+                ProgressView()
+                    .frame(width: 40, height: 40)
+                    .foregroundColor(Color(hex: "#DC0A2D"))
+            }
+            .frame(width: 72, height: 72)
+            .clipped()
+        }
+        .frame(width: 104, height: 108)
         .background(
-            AsyncImage(url: pokemon.cover.image)
+            Color.white
+                .cornerRadius(8)
+                .shadow(color: .black.opacity(0.5), radius: 2)
         )
-        .cornerRadius(16)
     }
 }
 
 #Preview {
-    PokemonCard(pokemon: .init(data: .init(name: "Pikachu"), cover: .init(indexImage: 1)))
+    PokemonCard(pokemon: .init(data: .init(name: "Pikachu"), cover: .init(indexImage: 25)))
 }
