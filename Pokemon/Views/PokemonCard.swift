@@ -18,7 +18,7 @@ struct PokemonCard: View {
         VStack {
             HStack {
                 Spacer()
-                Text("#001") //Precisa recuperar o numero
+                Text(formattedPokemonNumber)
                     .font(.system(size: 8, weight: .light))
                     .foregroundColor(Color(hex: "#666666"))
                     .padding(.trailing, 8)
@@ -55,6 +55,9 @@ struct PokemonCard: View {
                 .cornerRadius(8)
                 .shadow(color: .black.opacity(0.5), radius: 2)
         )
+    }
+    private var formattedPokemonNumber: String {
+        String(format: "#%03d", pokemon.cover.indexImage)
     }
 }
 

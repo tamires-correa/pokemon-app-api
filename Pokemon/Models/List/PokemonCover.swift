@@ -10,7 +10,7 @@ import Foundation
 struct PokemonCover {
     private let baseImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/"
     private let extensionImage = ".png"
-    private let indexImage: Int
+    let indexImage: Int
     var image: URL? {
         URL(string: String(baseImage + String(indexImage) + extensionImage))
     }
